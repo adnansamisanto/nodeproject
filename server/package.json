@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon app.js"
+    "client":"npm start --prefix client",
+    "build":"npm run build --prefix client",
+    "clientInstall":"npm install --prefix client",
+    "heroku-postbuild":"npm run clientInstall && npm run build"
   },
   "author": "adnan sami",
   "license": "ISC",

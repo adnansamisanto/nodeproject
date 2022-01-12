@@ -7,6 +7,7 @@ app.use(require("./router/auth"));
 const cookieparser = require("cookie-parser");
 const port = process.env.PORT || 5000;
 const jwt = require("jsonwebtoken");
+const path = require('path') 
 app.use(cookieparser());
 app.use(express.urlencoded({ extended: false }));
 
@@ -39,7 +40,7 @@ app.get("/logout", authencation, (req, res) => {
 })
 
 if(process.env.NODE_ENV == "production"){
-    app.use(express.static("client/build")); 
+    app.use(express.static(path.join(__dirname,"/client/build"))); 
 }
 
 
